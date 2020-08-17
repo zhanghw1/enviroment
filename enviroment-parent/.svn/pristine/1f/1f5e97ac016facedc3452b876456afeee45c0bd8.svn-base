@@ -1,0 +1,47 @@
+package com.briup.send;
+
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.util.Collection;
+
+import com.briup.bean.Enviroment;
+import com.briup.util.FileBackUp;
+
+public class SendImpl implements ISend {
+
+	@SuppressWarnings("all")
+	@Override
+	public void send(Collection<Enviroment> collection) {
+
+		Socket socket = null;
+		String ip = "127.0.0.1";
+		int port = 7911;
+
+		try {
+
+			Object object = FileBackUp.recover("src/main/resources/client-data.txt", true);
+
+			if (object != null) {
+				collection.addAll((Collection<? extends Enviroment>) object);
+			}
+
+			socket = new Socket(ip, port);
+			System.out.println("客户端已成功连接到服务器端(" + ip + "," + port + ")");
+			ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+
+			oos.writeObject(collection);
+			oos.flush();
+			oos.close();
+			socket.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				FileBackUp.store("src/main/resources/client-data.txt", collection);
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+
+}

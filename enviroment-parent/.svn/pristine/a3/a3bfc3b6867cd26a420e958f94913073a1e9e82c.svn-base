@@ -1,0 +1,116 @@
+package com.briup.bean;
+
+import java.io.Serializable;
+import java.sql.Date;
+
+public class Enviroment implements Serializable {
+
+	private static final long serialVersionUID = 6311975820341588460L;
+
+	private String srcId;
+	private String devId;
+	private long regionId;
+	private String name;
+	private long count;
+	private Integer state;
+	private Double data;
+	private Integer reviceState;
+	private Date gatherData;
+
+	public Enviroment() {
+
+	}
+
+	public Enviroment(String srcId, String devId, long regionId, String name, long count, Integer state, Double data,
+			Integer reviceState, Date gatherData) {
+		this.srcId = srcId;
+		this.devId = devId;
+		this.regionId = regionId;
+		this.name = name;
+		this.count = count;
+		this.state = state;
+		this.data = data;
+		this.reviceState = reviceState;
+		this.gatherData = gatherData;
+	}
+
+	public String getSrcId() {
+		return srcId;
+	}
+
+	public void setSrcId(String srcId) {
+		this.srcId = srcId;
+	}
+
+	public String getDevId() {
+		return devId;
+	}
+
+	public void setDevId(String devId) {
+		this.devId = devId;
+	}
+
+	public long getRegionId() {
+		return regionId;
+	}
+
+	public void setRegionId(long regionId) {
+		this.regionId = regionId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public long getCount() {
+		return count;
+	}
+
+	public void setCount(long count) {
+		this.count = count;
+	}
+
+	public Integer getState() {
+		return state;
+	}
+
+	public void setState(Integer state) {
+		this.state = state;
+	}
+
+	public Double getData() {
+		return data;
+	}
+
+	public void setData(Double data) {
+		this.data = data;
+	}
+
+	public Integer getReviceState() {
+		return reviceState;
+	}
+
+	public void setReviceState(Integer reviceState) {
+		this.reviceState = reviceState;
+	}
+
+	public Date getGatherData() {
+		return gatherData;
+	}
+
+	public void setGatherData(Date gatherData) {
+		this.gatherData = gatherData;
+	}
+
+	@Override
+	public String toString() {
+		return "Enviroment [srcId=" + srcId + ", devId=" + devId + ", regionId=" + regionId + ", name=" + name
+				+ ", count=" + count + ", state=" + state + ", data=" + data + ", reviceState=" + reviceState
+				+ ", gatherData=" + gatherData + "]";
+	}
+
+}

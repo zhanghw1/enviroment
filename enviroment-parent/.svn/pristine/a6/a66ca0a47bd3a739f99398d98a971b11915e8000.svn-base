@@ -1,0 +1,12 @@
+package com.briup.receive;
+
+import org.junit.Test;
+
+public class ReceiveTest {
+
+	@Test
+	public void test1() {
+		IReceive receive = new ReceiveImpl();
+		receive.receive();
+	}
+}

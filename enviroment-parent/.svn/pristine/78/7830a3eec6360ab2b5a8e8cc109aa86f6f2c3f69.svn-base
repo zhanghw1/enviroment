@@ -1,0 +1,10 @@
+package com.briup.receive;
+
+import java.util.Collection;
+
+import com.briup.bean.Enviroment;
+
+public interface IReceive {
+
+	Collection<Enviroment> receive();
+}
